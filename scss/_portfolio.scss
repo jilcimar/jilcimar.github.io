@@ -1,144 +1,125 @@
-// Styling for the portfolio section
-#portfolio {
-  .portfolio-item {
-    right: 0;
-    margin: 0 0 15px;
-    .portfolio-link {
-      position: relative;
-      display: block;
-      max-width: 400px;
-      margin: 0 auto;
-      cursor: pointer;
-      .portfolio-hover {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        -webkit-transition: all ease 0.5s;
-        -moz-transition: all ease 0.5s;
-        transition: all ease 0.5s;
-        opacity: 0;
-        background: fade-out($primary, .1);
-        &:hover {
-          opacity: 1;
+/* Portfolio css
+============================================================================================ */
+.portfolio_area{
+    .porfolio_menu{
+        text-align: center;
+        .causes_filter{
+            text-align: center;
+            border-bottom: 5px solid #fff;
+            display: inline-block;
+            border-radius: 2.5px;
+            li{
+                display: inline-block;
+                margin-right: 45px;
+                a{
+                    font-size: 18px;
+                    color: $dip;
+                    font-family: $ral;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    line-height: 36px;
+                    position: relative;
+                    display: inline-block;
+                    &:before{
+                        content: "";
+                        height: 5px;
+                        background: $baseColor;
+                        width: 100%;
+                        position: absolute;
+                        left: 0px;
+                        bottom: -5px;
+                        transform: scale(0);
+                        @include transition;
+                    }
+                }
+                &:hover, &.active{
+                    a{
+                        &:before{
+                            transform: scale(1);
+                        }
+                    }
+                }
+                &:first-child{
+                    a{
+                        &:before{
+                            border-bottom-left-radius: 2.5px;
+                            border-top-left-radius: 2.5px;
+                        }
+                    }
+                }
+                &:last-child{
+                    margin-right: 0px;
+                    a{
+                        &:before{
+                            border-bottom-right-radius: 2.5px;
+                            border-top-right-radius: 2.5px;
+                        }
+                    }
+                }
+            }
         }
-        .portfolio-hover-content {
-          font-size: 20px;
-          position: absolute;
-          top: 50%;
-          width: 100%;
-          height: 20px;
-          margin-top: -12px;
-          text-align: center;
-          color: white;
-          i {
-            margin-top: -12px;
-          }
-          h3,
-          h4 {
-            margin: 0;
-          }
+    }
+    .portfolio_list_inner{
+        .portfolio_item{
+            margin-top: 40px;
+            .portfolio_img{
+                position: relative;
+                transform: perspective(1px) translateZ(0);
+                &:before{
+                    content: "";
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, .5);
+                    transform: scaleX(0);
+                    transform-origin: 0 50%;
+                    transition-property: transform;
+                    transition-timing-function: ease-out;
+                    transition-duration: 0.3s;
+                }
+                img{
+                    max-width: 100%;
+                }
+            }
+            .portfolio_title{
+                text-align: center;
+                background: #fff;
+                @include transition;
+                h4{
+                    font-size: 16px;
+                    font-family: $ral;
+                    font-weight: bold;
+                    color: $pfont;
+                    text-transform: uppercase;
+                    padding: 18px 0px 10px 0px;
+                }
+                h5{
+                    font-size: 14px;
+                    font-family: $ral;
+                    color: $gray;
+                    padding-bottom: 18px;
+                }
+            }
+            &:hover{
+                .portfolio_img{
+                    &:before{
+                        transform: scaleX(1);
+                    }
+                }
+                .portfolio_title{
+                    background: $baseColor;
+                    h4{
+                        color: #fff;
+                    }
+                    h5{
+                        color: #fff;
+                    }
+                }
+            }
         }
-      }
     }
-    .portfolio-caption {
-      max-width: 400px;
-      margin: 0 auto;
-      padding: 25px;
-      text-align: center;
-      background-color: $white;
-      h4 {
-        margin: 0;
-        text-transform: none;
-      }
-      p {
-        font-size: 16px;
-        font-style: italic;
-        margin: 0;
-        @include serif-font;
-      }
-    }
-  }
-  * {
-    z-index: 2;
-  }
 }
-@media(min-width:767px) {
-  #portfolio {
-    .portfolio-item {
-      margin: 0 0 30px;
-    }
-  }
-}
-
-.portfolio-modal {
-  padding-right: 0px !important;
-  .modal-dialog {
-    margin: 1rem;
-    max-width: 100vw;
-  }
-  .modal-content {
-    padding: 100px 0;
-    text-align: center;
-    h2 {
-      font-size: 3em;
-      margin-bottom: 15px;
-    }
-    p {
-      margin-bottom: 30px;
-    }
-    p.item-intro {
-      font-size: 16px;
-      font-style: italic;
-      margin: 20px 0 30px;
-      @include serif-font;
-    }
-    ul.list-inline {
-      margin-top: 0;
-      margin-bottom: 30px;
-    }
-    img {
-      margin-bottom: 30px;
-    }
-    button {
-      cursor: pointer;
-    }
-  }
-  .close-modal {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    width: 75px;
-    height: 75px;
-    cursor: pointer;
-    background-color: transparent;
-    &:hover {
-      opacity: 0.3;
-    }
-    .lr {
-      /* Safari and Chrome */
-      z-index: 1051;
-      width: 1px;
-      height: 75px;
-      margin-left: 35px;
-      /* IE 9 */
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      transform: rotate(45deg);
-      background-color: $gray-900;
-      .rl {
-        /* Safari and Chrome */
-        z-index: 1052;
-        width: 1px;
-        height: 75px;
-        /* IE 9 */
-        -webkit-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        transform: rotate(90deg);
-        background-color: $gray-900;
-      }
-    }
-  }
-  .modal-backdrop {
-
-  }
-}
+/* End Portfolio css
+============================================================================================ */
