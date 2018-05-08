@@ -8,8 +8,6 @@ Freelancer, Técnico em Informática, futuro engenheiro da computação e desenv
 
 **[Ver link do preview](http://jilcimar.github.io/)**
 
-## Status
-
 ## Direitos autorais e licença
 
 Copyright 2013-2018 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-agency/blob/gh-pages/LICENSE) license.
